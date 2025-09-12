@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
 import { ThemeProvider, createTheme, CssBaseline } from "@mui/material";
-
+import MainLayout from "./layouts/MainLayout";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import About from "./components/About";
@@ -33,29 +33,31 @@ function App() {
   );
 
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline /> {/* resets styles according to theme */}
-      <div className="min-h-screen bg-white font-sans text-primary-light dark:bg-primary-light dark:text-primary-dark">
-        <Navbar mode={mode} setMode={setMode} /> {/* pass toggle down */}
-        <main>
-          <section id="hero">
-            <Hero />
-          </section>
-          <section id="projects">
-            <Projects />
-          </section>
-          <section id="stack">
-            <Stack />
-          </section>
-          <section id="about">
-            <About />
-          </section>
-          <section id="contact">
-            <Contact />
-          </section>
-        </main>
-      </div>
-    </ThemeProvider>
+    <MainLayout>
+      <ThemeProvider theme={theme}>
+        <CssBaseline /> {/* resets styles according to theme */}
+        <div className="min-h-screen bg-white font-sans text-primary-light dark:bg-primary-light dark:text-primary-dark">
+          <Navbar mode={mode} setMode={setMode} /> {/* pass toggle down */}
+          <main>
+            <section id="hero">
+              <Hero />
+            </section>
+            <section id="projects">
+              <Projects />
+            </section>
+            <section id="stack">
+              <Stack />
+            </section>
+            <section id="about">
+              <About />
+            </section>
+            <section id="contact">
+              <Contact />
+            </section>
+          </main>
+        </div>
+      </ThemeProvider>
+    </MainLayout>
   );
 }
 

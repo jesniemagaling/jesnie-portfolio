@@ -20,7 +20,7 @@ export default function Navbar({ mode, setMode }: NavbarProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="flex items-center justify-between p-4 sm:px-8">
+    <nav className="flex items-center justify-between">
       <div className="flex items-center">
         <div className="w-[36px]">
           <img
