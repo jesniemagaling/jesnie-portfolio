@@ -20,7 +20,7 @@ export default function Navbar({ mode, setMode }: NavbarProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="flex items-center justify-between">
+    <nav className="fixed left-0 top-0 z-50 flex w-full items-center justify-between bg-white px-4 py-3 dark:bg-black">
       <div className="flex items-center">
         <div className="w-[36px]">
           <img
@@ -98,8 +98,8 @@ export default function Navbar({ mode, setMode }: NavbarProps) {
       </button>
 
       {isOpen && (
-        <div className="absolute left-0 top-14 z-10 w-full md:hidden">
-          <ul className="flex flex-col space-y-4 px-10 py-6 text-sm text-gray-300">
+        <div className="absolute left-0 top-14 z-10 w-full bg-white dark:bg-black md:hidden">
+          <ul className="flex flex-col space-y-4 p-6 text-sm text-gray-300">
             <li>
               <a
                 href="#stack"
@@ -133,7 +133,7 @@ export default function Navbar({ mode, setMode }: NavbarProps) {
               </a>
             </li>
           </ul>
-          <div className="flex items-center space-x-4 px-10 pb-6 pt-2">
+          <div className="flex items-center space-x-4 p-6 pt-2">
             <a
               href="https://github.com/jesniemagaling"
               target="_blank"

@@ -2,7 +2,7 @@ import { PrimaryButton, SecondaryButton } from "./CustomButtons";
 
 function Hero() {
   return (
-    <section className="-mt-14 flex h-full min-h-screen items-center justify-center">
+    <section className="flex h-full min-h-screen items-center justify-center">
       <div className="mx-auto max-w-[1000px] space-y-6">
         <div className="font-bold">
           <p className="text-[44px] md:text-[60px]">Hi, I’m Jesnie,</p>
