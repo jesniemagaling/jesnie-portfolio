@@ -1,6 +1,6 @@
 interface SectionHeaderProps {
   title: String;
-  description: String;
+  description?: String;
 }
 
 export default function SectionHeader({
@@ -9,7 +9,7 @@ export default function SectionHeader({
 }: SectionHeaderProps) {
   return (
     <>
-      <div className="space-y-1 text-center md:text-left">
+      <div className="text-center md:text-left">
         <h1 className="text-[28px] font-bold md:text-[32px] lg:text-4xl">
           {title}
         </h1>

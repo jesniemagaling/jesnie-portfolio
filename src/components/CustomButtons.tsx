@@ -7,7 +7,7 @@ export const PrimaryButton = styled((props: ButtonProps) => (
   <Button variant="contained" disableElevation {...props} />
 ))(({ theme }) => ({
   borderRadius: "8px",
-  padding: "6px 22px",
+  padding: "6px 20px",
   textTransform: "none",
   fontWeight: 500,
   // text + background colors from tailwind theme
