@@ -125,7 +125,7 @@ export default function Stack() {
           "These are the technologies, frameworks, and tools I use to bring ideas to life, covering everything from frontend to backend development."
         }
       />
-      <div className="mb-10 mt-4 flex flex-wrap gap-2">
+      <div className="mb-10 mt-5 flex flex-wrap gap-2">
         {categories.map((cat) =>
           selected === cat ? (
             <PrimaryButton key={cat} onClick={() => setSelected(cat)}>

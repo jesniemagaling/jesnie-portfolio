@@ -2,7 +2,7 @@ import SectionHeader from "./SectionHeader";
 
 export default function About() {
   return (
-    <div className="flex gap-[84px]">
+    <div className="my-28 grid grid-cols-1 gap-[46px] md:grid-cols-2 lg:gap-[84px]">
       <div className="max-w-[655px]">
         <SectionHeader title={"About Me"} />
         <p className="mb-2 mt-6 text-lg opacity-80 dark:opacity-70 md:text-xl">
