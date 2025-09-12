@@ -1,5 +1,5 @@
 import { Github, Sun, Moon, Menu, X } from "lucide-react";
-import type { SetStateAction } from "react";
+import { useState, type SetStateAction } from "react";
 import type { Dispatch } from "react";
 
 interface NavbarProps {
@@ -12,74 +12,145 @@ export default function Navbar({ mode, setMode }: NavbarProps) {
     const newMode = mode === "dark" ? "light" : "dark";
     setMode(newMode);
 
-    // update Tailwind class
     document.documentElement.classList.toggle("dark", newMode === "dark");
 
-    // remember choice
     localStorage.setItem("theme", newMode);
   };
 
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
-    <nav className="flex items-center justify-between bg-[#0A0E17] px-8 py-4 text-gray-300">
+    <nav className="flex items-center justify-between p-4 sm:px-8">
       <div className="flex items-center">
         <div className="w-[36px]">
-          <img src="/icons/dark-logo.png" alt="jesnie-icon" />
+          <img
+            className="hidden dark:block"
+            src="/icons/dark-logo.png"
+            alt="jesnie-icon"
+          />
+          <img
+            className="block dark:hidden"
+            src="/icons/light-logo.png"
+            alt="jesnie-icon"
+          />
         </div>
       </div>
 
       {/* Desktop menu */}
-      <ul className="hidden gap-8 text-sm font-medium md:flex">
+      <ul className="hidden gap-8 text-sm font-semibold md:flex">
         <li>
-          <a href="#stack" className="hover:text-white">
+          <a
+            href="#stack"
+            className="transition-colors duration-100 hover:text-gray-700 dark:text-white dark:hover:text-gray-300"
+          >
             Stack
           </a>
         </li>
         <li>
-          <a href="#projects" className="hover:text-white">
+          <a
+            href="#projects"
+            className="transition-colors duration-100 hover:text-gray-700 dark:text-white dark:hover:text-gray-300"
+          >
             Projects
           </a>
         </li>
         <li>
-          <a href="#about" className="hover:text-white">
+          <a
+            href="#about"
+            className="transition-colors duration-100 hover:text-gray-700 dark:text-white dark:hover:text-gray-300"
+          >
             About
           </a>
         </li>
         <li>
-          <a href="#contact" className="hover:text-white">
+          <a
+            href="#contact"
+            className="transition-colors duration-100 hover:text-gray-700 dark:text-white dark:hover:text-gray-300"
+          >
             Contact
           </a>
         </li>
       </ul>
 
       {/* Icons */}
-      <div className="hidden items-center space-x-4 border-l border-gray-800 pl-4 md:flex">
+      <div className="hidden items-center space-x-4 border-l border-gray-300 pl-4 dark:border-gray-800 md:flex">
         <a
           href="https://github.com/jesniemagaling"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <Github className="text-gray-400 hover:text-white dark:text-gray-200 dark:hover:text-white md:h-6 md:w-6" />
+          <Github className="text-black transition-colors duration-100 hover:text-gray-700 dark:text-white dark:hover:text-gray-300 md:h-6 md:w-6" />
         </a>
         <button onClick={toggleDarkMode}>
           {mode === "dark" ? (
-            <Sun className="text-gray-400 hover:text-white md:h-6 md:w-6" />
+            <Sun className="text-black transition-colors duration-100 hover:text-gray-700 dark:text-white dark:hover:text-gray-300 md:h-6 md:w-6" />
           ) : (
-            <Moon className="text-gray-400 hover:text-white md:h-6 md:w-6" />
+            <Moon className="text-black transition-colors duration-100 hover:text-gray-700 dark:text-white dark:hover:text-gray-300 md:h-6 md:w-6" />
           )}
         </button>
       </div>
 
-      {/* Mobile menu button */}
       <button
-        className="hover:text-white md:hidden"
-        onClick={() => setMode(mode === "dark" ? "light" : "dark")}
+        className="text-black transition-colors duration-100 hover:text-gray-700 dark:text-white dark:hover:text-gray-300 md:hidden"
+        onClick={() => setIsOpen(!isOpen)}
       >
-        {mode === "dark" ? (
-          <X className="h-6 w-6" />
-        ) : (
-          <Menu className="h-6 w-6" />
-        )}
+        {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
       </button>
+
+      {isOpen && (
+        <div className="absolute left-0 top-14 z-10 w-full md:hidden">
+          <ul className="flex flex-col space-y-4 px-10 py-6 text-sm text-gray-300">
+            <li>
+              <a
+                href="#stack"
+                className="font-semibold text-black transition-colors duration-100 hover:text-gray-700 dark:text-white dark:hover:text-gray-300"
+              >
+                Stack
+              </a>
+            </li>
+            <li>
+              <a
+                href="#projects"
+                className="font-semibold text-black transition-colors duration-100 hover:text-gray-700 dark:text-white dark:hover:text-gray-300"
+              >
+                Projects
+              </a>
+            </li>
+            <li>
+              <a
+                href="#about"
+                className="font-semibold text-black transition-colors duration-100 hover:text-gray-700 dark:text-white dark:hover:text-gray-300"
+              >
+                About
+              </a>
+            </li>
+            <li>
+              <a
+                href="#contact"
+                className="font-semibold text-black transition-colors duration-100 hover:text-gray-700 dark:text-white dark:hover:text-gray-300"
+              >
+                Contact
+              </a>
+            </li>
+          </ul>
+          <div className="flex items-center space-x-4 px-10 pb-6 pt-2">
+            <a
+              href="https://github.com/jesniemagaling"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Github className="text-black transition-colors duration-100 hover:text-gray-700 dark:text-white dark:hover:text-gray-300 md:h-6 md:w-6" />
+            </a>
+            <button onClick={toggleDarkMode}>
+              {mode === "dark" ? (
+                <Sun className="text-black transition-colors duration-100 hover:text-gray-700 dark:text-white dark:hover:text-gray-300 md:h-6 md:w-6" />
+              ) : (
+                <Moon className="text-black transition-colors duration-100 hover:text-gray-700 dark:text-white dark:hover:text-gray-300 md:h-6 md:w-6" />
+              )}
+            </button>
+          </div>
+        </div>
+      )}
     </nav>
   );
 }
