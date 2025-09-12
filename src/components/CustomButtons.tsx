@@ -7,7 +7,7 @@ export const PrimaryButton = styled((props: ButtonProps) => (
   <Button variant="contained" disableElevation {...props} />
 ))(({ theme }) => ({
   borderRadius: "8px",
-  padding: "6px 20px",
+  padding: "4px 20px",
   textTransform: "none",
   fontWeight: 500,
   // text + background colors from tailwind theme
@@ -29,20 +29,21 @@ export const SecondaryButton = styled((props: ButtonProps) => (
   <Button variant="outlined" disableElevation {...props} />
 ))(({ theme }) => ({
   borderRadius: "8px",
-  padding: "6px 22px",
+  padding: "4px 19px",
   textTransform: "none",
   fontWeight: 500,
-  border:
-    theme.palette.mode === "dark"
-      ? "1px solid #4B4848"
-      : "1px solid rgba(0,0,0,0.6)",
-  color: theme.palette.mode === "dark" ? "#ffffff" : "#000000",
   backgroundColor: "transparent",
+  boxShadow:
+    theme.palette.mode === "dark"
+      ? "inset 0 0 0 1px #4B4848"
+      : "inset 0 0 0 1px rgba(0,0,0,0.6)",
+  color: theme.palette.mode === "dark" ? "#ffffff" : "#000000",
+
   "&:hover": {
-    border:
+    boxShadow:
       theme.palette.mode === "dark"
-        ? "1px solid #6b6969"
-        : "1px solid rgba(0,0,0,0.8)",
+        ? "inset 0 0 0 1px #6b6969"
+        : "inset 0 0 0 1px rgba(0,0,0,0.8)",
     backgroundColor:
       theme.palette.mode === "dark" ? "rgba(75,72,72,0.1)" : "rgba(0,0,0,0.05)",
   },

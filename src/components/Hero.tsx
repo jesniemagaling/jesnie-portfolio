@@ -2,7 +2,7 @@ import { PrimaryButton, SecondaryButton } from "./CustomButtons";
 
 function Hero() {
   return (
-    <section className="-mt-14 flex min-h-screen items-center justify-center px-6">
+    <section className="-mt-14 flex h-full min-h-screen items-center justify-center">
       <div className="mx-auto max-w-[1000px] space-y-6">
         <div className="font-bold">
           <p className="text-[44px] md:text-[60px]">Hi, I’m Jesnie,</p>
@@ -16,7 +16,7 @@ function Hero() {
           use. I’m always working on projects that help me grow and get better
           at coding.
         </p>
-        <div className="flex gap-4">
+        <div className="flex h-full gap-4">
           <a href="#about">
             <PrimaryButton>About</PrimaryButton>
           </a>

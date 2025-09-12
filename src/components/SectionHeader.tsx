@@ -9,7 +9,7 @@ export default function SectionHeader({
 }: SectionHeaderProps) {
   return (
     <>
-      <div className="text-center md:text-left">
+      <div className="text-left">
         <h1 className="text-[28px] font-bold md:text-[32px] lg:text-4xl">
           {title}
         </h1>
