@@ -9,10 +9,8 @@ import Contact from "./components/Contact";
 import Stack from "./components/Stack";
 
 function App() {
-  // state for dark/light
   const [mode, setMode] = useState<"light" | "dark">("light");
 
-  // memoized theme so it only recalculates when `mode` changes
   const theme = useMemo(
     () =>
       createTheme({
@@ -36,7 +34,7 @@ function App() {
     <MainLayout>
       <ThemeProvider theme={theme}>
         <CssBaseline /> {/* resets styles according to theme */}
-        <div className="min-h-screen bg-white font-sans text-primary-light dark:bg-primary-light dark:text-primary-dark">
+        <div className="min-h-screen bg-primary-dark font-sans text-primary-light dark:bg-primary-light dark:text-primary-dark">
           <Navbar mode={mode} setMode={setMode} /> {/* pass toggle down */}
           <main>
             <section id="hero">

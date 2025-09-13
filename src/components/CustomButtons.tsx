@@ -7,7 +7,7 @@ export const PrimaryButton = styled((props: ButtonProps) => (
   <Button variant="contained" disableElevation {...props} />
 ))(({ theme }) => ({
   borderRadius: "8px",
-  padding: "4px 20px",
+  padding: "5px 20px",
   textTransform: "none",
   fontWeight: 500,
   // text + background colors from tailwind theme
@@ -29,7 +29,7 @@ export const SecondaryButton = styled((props: ButtonProps) => (
   <Button variant="outlined" disableElevation {...props} />
 ))(({ theme }) => ({
   borderRadius: "8px",
-  padding: "4px 19px",
+  padding: "5px 19px",
   textTransform: "none",
   fontWeight: 500,
   backgroundColor: "transparent",

@@ -13,7 +13,7 @@ export default function SectionHeader({
         <h1 className="text-[28px] font-bold md:text-[32px] lg:text-4xl">
           {title}
         </h1>
-        <p className="text-sm opacity-80 dark:opacity-70 md:text-xl">
+        <p className="text-sm opacity-80 dark:opacity-50 md:text-xl">
           {description}
         </p>
       </div>

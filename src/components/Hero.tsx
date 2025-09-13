@@ -10,17 +10,25 @@ function Hero() {
             Full-Stack <span className="text-accent-dark">Developer.</span>
           </p>
         </div>
-        <p className="text-base opacity-80 dark:opacity-70 md:text-xl">
+        <p className="text-base opacity-80 dark:opacity-50 md:text-xl">
           I’m a developer who builds web applications and keeps learning new
           technologies. I focus on making websites that are clear and easy to
           use. I’m always working on projects that help me grow and get better
           at coding.
         </p>
-        <div className="flex h-full gap-4">
-          <a href="#about">
+        <div className="flex gap-4">
+          <a href="#about" className="block h-full">
             <PrimaryButton>About</PrimaryButton>
           </a>
-          <SecondaryButton>Email</SecondaryButton>
+
+          <a
+            href="mailto:jesnie.magaling@email.lcup.edu.ph"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block h-full"
+          >
+            <SecondaryButton>Email</SecondaryButton>
+          </a>
         </div>
       </div>
     </section>

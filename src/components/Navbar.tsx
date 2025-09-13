@@ -20,7 +20,7 @@ export default function Navbar({ mode, setMode }: NavbarProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="fixed left-0 top-0 z-50 flex w-full items-center justify-between bg-white px-4 py-3 dark:bg-black">
+    <nav className="fixed left-0 top-0 z-50 flex w-full items-center justify-between bg-white px-4 py-3 dark:bg-primary-light md:px-8">
       <div className="flex items-center">
         <div className="w-[36px]">
           <img
