@@ -17,6 +17,10 @@ module.exports = {
         accent: {
           dark: "#858585",
         },
+        typography: {
+          light: "rgba(0,0,0,0.8)",
+          dark: "rgba(255,255,255,0.5)",
+        },
       },
     },
   },

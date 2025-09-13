@@ -10,7 +10,7 @@ function Hero() {
             Full-Stack <span className="text-accent-dark">Developer.</span>
           </p>
         </div>
-        <p className="text-base opacity-80 dark:opacity-50 md:text-xl">
+        <p className="text-body text-base md:text-xl">
           I’m a developer who builds web applications and keeps learning new
           technologies. I focus on making websites that are clear and easy to
           use. I’m always working on projects that help me grow and get better
