@@ -14,7 +14,7 @@ export const PrimaryButton = styled((props: ButtonProps) => (
   color: theme.palette.mode === "dark" ? "#ffffff" : "#000000",
   backgroundColor:
     theme.palette.mode === "dark"
-      ? theme.palette.grey[900] || "#242424" // fallback for dark
+      ? theme.palette.grey[900] || "#242424"
       : "rgba(133,133,133,0.7)",
   "&:hover": {
     backgroundColor:

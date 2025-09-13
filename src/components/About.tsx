@@ -5,7 +5,7 @@ export default function About() {
     <div className="my-28 grid grid-cols-1 gap-[46px] md:grid-cols-2 lg:gap-[84px]">
       <div className="max-w-[655px]">
         <SectionHeader title={"About Me"} />
-        <p className="mb-2 mt-6 text-lg opacity-80 dark:opacity-70 md:text-xl">
+        <p className="text-body mb-2 mt-6 text-lg md:text-xl">
           I’m Jesnie Magaling, 21 years old, from Bulacan, and currently taking
           up BS in Information Technology at La Consolacion University
           Philippines. I’m a full-stack developer who can build web
@@ -13,7 +13,7 @@ export default function About() {
           modern technologies. Recently, I’ve also started exploring artificial
           intelligence engineering.{" "}
         </p>
-        <p className="mb-6 text-lg opacity-80 dark:opacity-70 md:text-xl">
+        <p className="text-body mb-6 text-lg md:text-xl">
           I enjoy learning new technologies, tackling challenges, and keeping up
           with the latest trends in development. I’m currently looking for a
           professional role where I can apply my skills, grow as a developer,
@@ -24,7 +24,7 @@ export default function About() {
           <h2 className="text-2xl font-bold md:text-3xl lg:text-[32px]">
             My Goal
           </h2>
-          <p className="mt-2 text-lg opacity-80 dark:opacity-70 md:text-xl">
+          <p className="text-body mt-2 text-lg md:text-xl">
             To work in a team that creates responsive web applications and
             AI-powered solutions that can make a real difference in tech
             communities and organizations.
@@ -37,10 +37,10 @@ export default function About() {
           <h2 className="mt-5 text-xl font-semibold md:text-2xl">
             La Consolacion University Philippines
           </h2>
-          <p className="mb-4 mt-2 text-lg opacity-80 dark:opacity-70 md:text-xl">
+          <p className="text-body mb-4 mt-2 text-lg md:text-xl">
             Bachelor of Science in Information Technology
           </p>
-          <h3 className="text-lg font-medium opacity-80 dark:opacity-70 md:text-xl">
+          <h3 className="text-body text-lg font-semibold md:text-xl">
             2022 - 2026
           </h3>
         </div>
@@ -48,10 +48,10 @@ export default function About() {
           <h2 className="mt-4 text-xl font-semibold md:text-2xl">
             La Consolacion University Philippines
           </h2>
-          <p className="mb-4 mt-2 text-lg opacity-80 dark:opacity-70 md:text-xl">
+          <p className="text-body mb-4 mt-2 text-lg md:text-xl">
             Senior High School
           </p>
-          <h3 className="text-lg font-medium opacity-80 dark:opacity-70 md:text-xl">
+          <h3 className="text-body text-lg font-semibold md:text-xl">
             2020 - 2022
           </h3>
         </div>

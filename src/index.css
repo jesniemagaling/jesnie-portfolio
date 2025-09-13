@@ -10,6 +10,6 @@
 
 @layer utilities {
   .text-body {
-    @apply text-black/80 dark:text-white/50;
+    @apply text-black/80 dark:text-white/60;
   }
 }

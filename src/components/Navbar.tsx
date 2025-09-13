@@ -20,7 +20,7 @@ export default function Navbar({ mode, setMode }: NavbarProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="fixed left-0 top-0 z-50 flex w-full items-center justify-between bg-white px-4 py-3 dark:bg-primary-light md:px-8">
+    <nav className="fixed left-0 top-0 z-50 flex w-full items-center justify-between bg-primary-light px-4 py-3 dark:bg-primary-dark md:px-8">
       <div className="flex items-center">
         <div className="w-[36px]">
           <img
@@ -41,7 +41,7 @@ export default function Navbar({ mode, setMode }: NavbarProps) {
         <li>
           <a
             href="#stack"
-            className="transition-colors duration-100 hover:text-gray-700 dark:text-white dark:hover:text-gray-300"
+            className="transition-colors duration-100 hover:text-gray-700 dark:hover:text-gray-300"
           >
             Stack
           </a>
@@ -49,7 +49,7 @@ export default function Navbar({ mode, setMode }: NavbarProps) {
         <li>
           <a
             href="#projects"
-            className="transition-colors duration-100 hover:text-gray-700 dark:text-white dark:hover:text-gray-300"
+            className="transition-colors duration-100 hover:text-gray-700 dark:hover:text-gray-300"
           >
             Projects
           </a>
@@ -57,7 +57,7 @@ export default function Navbar({ mode, setMode }: NavbarProps) {
         <li>
           <a
             href="#about"
-            className="transition-colors duration-100 hover:text-gray-700 dark:text-white dark:hover:text-gray-300"
+            className="transition-colors duration-100 hover:text-gray-700 dark:hover:text-gray-300"
           >
             About
           </a>
@@ -65,7 +65,7 @@ export default function Navbar({ mode, setMode }: NavbarProps) {
         <li>
           <a
             href="#contact"
-            className="transition-colors duration-100 hover:text-gray-700 dark:text-white dark:hover:text-gray-300"
+            className="transition-colors duration-100 hover:text-gray-700 dark:hover:text-gray-300"
           >
             Contact
           </a>
@@ -98,7 +98,7 @@ export default function Navbar({ mode, setMode }: NavbarProps) {
       </button>
 
       {isOpen && (
-        <div className="absolute left-0 top-14 z-10 w-full bg-white dark:bg-black md:hidden">
+        <div className="absolute left-0 top-14 z-10 w-full bg-primary-light dark:bg-primary-dark md:hidden">
           <ul className="flex flex-col space-y-4 p-6 text-sm text-gray-300">
             <li>
               <a

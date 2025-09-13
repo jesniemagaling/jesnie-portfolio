@@ -1,7 +1,36 @@
 import SectionHeader from "./SectionHeader";
 import { PrimaryButton, SecondaryButton } from "./CustomButtons";
+import { useRef, useState } from "react";
+import emailjs from "@emailjs/browser";
+import toast from "react-hot-toast";
 
 export default function Contact() {
+  const formRef = useRef<HTMLFormElement>(null);
+  const [loading, setLoading] = useState(false);
+
+  const sendEmail = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+
+    if (!formRef.current) return;
+
+    try {
+      await emailjs.sendForm(
+        "service_fuppwgq",
+        "template_38q0u9q",
+        formRef.current,
+        "-HTl4rU_tkX-7EmKx",
+      );
+
+      toast.success("Message sent successfully!");
+      formRef.current.reset();
+    } catch (error) {
+      console.error(error);
+      toast.error("Failed to send message. Try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
   return (
     <>
       <SectionHeader
@@ -66,11 +95,13 @@ export default function Contact() {
 
           {/* Button */}
           <PrimaryButton
+            type="submit"
+            disabled={loading}
             variant="outlined"
             fullWidth
             className="border-[rgba(255, 255, 255, 0.10)] dark:border-[rgba(255,255,255,0.06)]"
           >
-            Send Message
+            {loading ? "Sending..." : "Send Message"}
           </PrimaryButton>
         </form>
       </div>
