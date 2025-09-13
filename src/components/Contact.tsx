@@ -16,7 +16,7 @@ export default function Contact() {
 
     try {
       await emailjs.sendForm(
-        "service_fuppwgq",
+        "service_f2hrrub",
         "template_38q0u9q",
         formRef.current,
         "-HTl4rU_tkX-7EmKx",
@@ -44,7 +44,7 @@ export default function Contact() {
           <PrimaryButton>Call</PrimaryButton>
         </a>
         <a
-          href="mailto:jesnie.magaling@email.lcup.edu.ph"
+          href="mailto:magalingjesnie@gmail.com"
           target="_blank"
           rel="noopener noreferrer"
           className="block h-full"
@@ -58,14 +58,17 @@ export default function Contact() {
           Fill out the form and I’ll get back to you as soon as possible.
         </p>
 
-        <form className="space-y-6">
+        <form ref={formRef} onSubmit={sendEmail} className="space-y-6">
+          <input type="hidden" name="title" value="Portfolio Contact Form" />
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
             <div className="flex flex-col">
               <label className="mb-2 text-sm font-semibold md:text-base">
                 Name
               </label>
               <input
+                required
                 type="text"
+                name="name"
                 placeholder="Enter your name"
                 className="rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder-[#7E7D7E] focus:border-gray-600 focus:outline-none dark:border-[rgba(255,255,255,0.06)] dark:focus:border-gray-400"
               />
@@ -75,7 +78,9 @@ export default function Contact() {
                 Email
               </label>
               <input
+                required
                 type="email"
+                name="email"
                 placeholder="Enter your email"
                 className="rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder-[#7E7D7E] focus:border-gray-600 focus:outline-none dark:border-[rgba(255,255,255,0.06)] dark:focus:border-gray-400"
               />
@@ -87,6 +92,8 @@ export default function Contact() {
               Message
             </label>
             <textarea
+              required
+              name="message"
               placeholder="Enter your message"
               rows={10}
               className="rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder-[#7E7D7E] focus:border-gray-600 focus:outline-none dark:border-[rgba(255,255,255,0.06)] dark:focus:border-gray-400"

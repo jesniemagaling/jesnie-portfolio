@@ -56,10 +56,8 @@ function App() {
         <Toaster
           position="top-right"
           toastOptions={{
-            style: {
-              background: "#333",
-              color: "#fff",
-            },
+            className:
+              "bg-primary-light text-black dark:bg-primary-dark dark:text-white",
           }}
         />
       </ThemeProvider>
