@@ -52,7 +52,7 @@ export default function Contact() {
           <SecondaryButton>Email</SecondaryButton>
         </a>
       </div>
-      <div className="rounded-lg border border-gray-300 p-8 dark:border-[rgba(255,255,255,0.06)] dark:bg-[#1C1C1C]">
+      <div className="rounded-lg border border-gray-300 p-6 dark:border-[rgba(255,255,255,0.06)] dark:bg-[#1C1C1C] md:p-8">
         <h2 className="text-lg font-semibold md:text-xl">Send Message</h2>
         <p className="mb-6 text-sm opacity-80 dark:opacity-50">
           Fill out the form and I’ll get back to you as soon as possible.

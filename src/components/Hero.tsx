@@ -22,7 +22,7 @@ function Hero() {
           </a>
 
           <a
-            href="mailto:jesnie.magaling@email.lcup.edu.ph"
+            href="mailto:magalingjesnie@gmail.com"
             target="_blank"
             rel="noopener noreferrer"
             className="block h-full"

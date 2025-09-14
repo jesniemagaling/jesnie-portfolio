@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useMemo, useState, useEffect } from "react";
 import { ThemeProvider, createTheme, CssBaseline } from "@mui/material";
 import MainLayout from "./layouts/MainLayout";
 import Navbar from "./components/Navbar";
@@ -10,7 +10,19 @@ import Stack from "./components/Stack";
 import { Toaster } from "react-hot-toast";
 
 function App() {
-  const [mode, setMode] = useState<"light" | "dark">("light");
+  const [mode, setMode] = useState<"light" | "dark">(
+    (localStorage.getItem("theme") as "light" | "dark") || "light",
+  );
+
+  useEffect(() => {
+    localStorage.setItem("theme", mode);
+
+    if (mode === "dark") {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  }, [mode]);
 
   const theme = useMemo(
     () =>
@@ -35,7 +47,7 @@ function App() {
     <MainLayout>
       <ThemeProvider theme={theme}>
         <CssBaseline /> {/* resets styles according to theme */}
-        <Navbar mode={mode} setMode={setMode} /> {/* pass toggle down */}
+        <Navbar mode={mode} setMode={setMode} />
         <main>
           <section id="hero">
             <Hero />

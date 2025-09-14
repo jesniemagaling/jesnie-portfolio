@@ -21,7 +21,7 @@ export default function Navbar({ mode, setMode }: NavbarProps) {
 
   return (
     <nav className="fixed left-0 top-0 z-50 flex w-full items-center justify-between bg-primary-light px-4 py-3 dark:bg-primary-dark md:px-8">
-      <div className="flex items-center">
+      <div className="flex max-w-[1440px] items-center">
         <div className="w-[36px]">
           <img
             className="hidden dark:block"
