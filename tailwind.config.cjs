@@ -22,6 +22,10 @@ module.exports = {
           dark: "rgba(255,255,255,0.5)",
         },
       },
+      screens: {
+        "max-xl": { max: "1199px", min: "880px" },
+        "max-md": { max: "880px", min: "767px" },
+      },
     },
   },
   darkMode: "class",

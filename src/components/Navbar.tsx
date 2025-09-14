@@ -22,7 +22,7 @@ export default function Navbar({ mode, setMode }: NavbarProps) {
   return (
     <nav className="fixed left-0 top-0 z-50 flex w-full items-center justify-between bg-primary-light px-4 py-3 dark:bg-primary-dark md:px-8">
       <div className="flex max-w-[1440px] items-center">
-        <div className="w-[36px]">
+        <a className="w-[36px]" href="#">
           <img
             className="hidden dark:block"
             src="/icons/dark-logo.png"
@@ -33,7 +33,7 @@ export default function Navbar({ mode, setMode }: NavbarProps) {
             src="/icons/light-logo.png"
             alt="jesnie-icon"
           />
-        </div>
+        </a>
       </div>
 
       {/* Desktop menu */}
