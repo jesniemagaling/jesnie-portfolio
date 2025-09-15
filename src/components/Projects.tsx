@@ -10,11 +10,11 @@ const projectItems = [
     stack: ["ReactTS", "TailwindCSS", "Shadcn", "Vite"],
     link: [
       {
-        live: "https://jesniemagaling.github.io/qveeco-ecommerce/pages/qveeco.html",
-        repo: "https://github.com/jesniemagaling/qveeco-ecommerce",
+        live: "",
+        repo: "https://github.com/jesniemagaling/orderq",
       },
     ],
-    image: "",
+    image: "images/orderq-desktop.png",
   },
   {
     name: "QVEE.CO",
@@ -29,6 +29,19 @@ const projectItems = [
     ],
     image: "images/qveeco-desktop.png",
   },
+  {
+    name: "ELECAR",
+    description:
+      "Elecar is a responsive landing page created using only HTML and CSS. It presents a modern and clean layout with smooth hover effects, consistent styling, and a structure that adjusts well across various screen sizes. The project focuses on core front end skills such as semantic markup, layout design, and visual aesthetics without relying on any external frameworks or libraries. It serves as a strong example of effective and efficient web design using fundamental technologies.",
+    stack: ["HTML", "CSS", "Javascript"],
+    link: [
+      {
+        live: "https://jesniemagaling.github.io/elecar/landingpage.html",
+        repo: "https://github.com/jesniemagaling/elecar",
+      },
+    ],
+    image: "images/elecar-desktop.png",
+  },
 ];
 
 export default function Projects() {
@@ -40,7 +53,7 @@ export default function Projects() {
           "Here’s a quick look at some of the projects I’ve worked on. They show the kind of work I enjoy and the skills I do best."
         }
       />
-      <div className="mb-36 mt-10 space-y-8">
+      <div className="mb-36 mt-10 space-y-6">
         {projectItems.map((project) => (
           <div className="flex flex-col items-start gap-6 rounded-2xl border border-transparent p-6 shadow-sm hover:dark:border-[rgba(255,255,255,0.06)] md:flex-row">
             <div className="w-full overflow-hidden rounded-xl md:w-1/2">
@@ -51,7 +64,7 @@ export default function Projects() {
               />
             </div>
 
-            <div className="flex w-full flex-col justify-between md:w-1/2">
+            <div className="flex w-full flex-col md:mt-2 md:w-1/2">
               <h3 className="mb-2 text-xl font-semibold">{project.name}</h3>
 
               <p className="text-body text-sm sm:text-base md:line-clamp-4 lg:line-clamp-none">
