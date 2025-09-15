@@ -1,6 +1,13 @@
 import { Github, Sun, Moon, Menu, X } from "lucide-react";
-import { useState, type SetStateAction } from "react";
+import {
+  useRef,
+  useLayoutEffect,
+  useEffect,
+  useState,
+  type SetStateAction,
+} from "react";
 import type { Dispatch } from "react";
+import gsap from "gsap";
 
 interface NavbarProps {
   mode: "light" | "dark";
@@ -8,6 +15,39 @@ interface NavbarProps {
 }
 
 export default function Navbar({ mode, setMode }: NavbarProps) {
+  const logoRef = useRef<HTMLAnchorElement>(null);
+  const linksRef = useRef<HTMLUListElement>(null);
+  const iconsRef = useRef<HTMLDivElement>(null);
+
+  useLayoutEffect(() => {
+    let ctx = gsap.context(() => {
+      const tl = gsap.timeline({
+        defaults: { ease: "back.out(1.7)", duration: 0.4 },
+      });
+
+      if (logoRef.current) {
+        tl.from(logoRef.current, { y: -30, opacity: 0 });
+      }
+
+      if (linksRef.current) {
+        const items = linksRef.current.querySelectorAll("li");
+        if (items.length > 0) {
+          tl.from(items, { y: -20, opacity: 0, stagger: 0.12 }, "-=0.01");
+        }
+      }
+
+      if (iconsRef.current) {
+        tl.from(
+          iconsRef.current.children,
+          { y: -10, opacity: 0, stagger: 0.12 },
+          "-=0.01",
+        );
+      }
+    });
+
+    return () => ctx.revert();
+  }, []);
+
   const toggleDarkMode = () => {
     const newMode = mode === "dark" ? "light" : "dark";
     setMode(newMode);
@@ -22,7 +62,7 @@ export default function Navbar({ mode, setMode }: NavbarProps) {
   return (
     <nav className="fixed left-0 top-0 z-50 flex w-full items-center justify-between bg-primary-light px-4 py-3 dark:bg-primary-dark md:px-8">
       <div className="flex max-w-[1440px] items-center">
-        <a className="w-[36px]" href="#">
+        <a ref={logoRef} className="w-[36px]" href="#">
           <img
             className="hidden dark:block"
             src="/icons/dark-logo.png"
@@ -37,7 +77,7 @@ export default function Navbar({ mode, setMode }: NavbarProps) {
       </div>
 
       {/* Desktop menu */}
-      <ul className="hidden gap-8 text-sm font-semibold md:flex">
+      <ul ref={linksRef} className="hidden gap-8 text-sm font-semibold md:flex">
         <li>
           <a
             href="#stack"
@@ -73,7 +113,10 @@ export default function Navbar({ mode, setMode }: NavbarProps) {
       </ul>
 
       {/* Icons */}
-      <div className="hidden items-center space-x-4 border-l border-gray-300 pl-4 dark:border-gray-800 md:flex">
+      <div
+        ref={iconsRef}
+        className="hidden items-center space-x-4 border-l border-gray-300 pl-4 dark:border-gray-800 md:flex"
+      >
         <a
           href="https://github.com/jesniemagaling"
           target="_blank"
