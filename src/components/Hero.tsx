@@ -1,4 +1,6 @@
 import { PrimaryButton, SecondaryButton } from "./CustomButtons";
+import gsap from "gsap";
+import { useEffect, useRef } from "react";
 
 function Hero() {
   return (

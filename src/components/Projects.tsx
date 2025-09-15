@@ -1,5 +1,4 @@
 import SectionHeader from "./SectionHeader";
-import { PrimaryButton, SecondaryButton } from "./CustomButtons";
 import { ExternalLink, Github } from "lucide-react";
 
 const projectItems = [
