@@ -14,24 +14,24 @@ export default function Hero() {
     tl.fromTo(
       titleRef.current,
       { y: 80, opacity: 0 },
-      { y: 0, opacity: 1, duration: 0.8, ease: "power3.out" },
+      { y: 0, opacity: 1, duration: 0.6, ease: "power3.out" },
     )
       .fromTo(
         subtitleRef.current,
         { y: 60, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.6, ease: "power3.out" },
+        { y: 0, opacity: 1, duration: 0.4, ease: "power3.out" },
         "-=0.3",
       )
       .fromTo(
         descRef.current,
         { y: 40, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.6, ease: "power3.out" },
+        { y: 0, opacity: 1, duration: 0.4, ease: "power3.out" },
         "-=0.2",
       )
       .fromTo(
         Array.from(buttonsRef.current?.children || []),
         { y: 30, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.5, ease: "power3.out", stagger: 0.2 },
+        { y: 0, opacity: 1, duration: 0.3, ease: "power3.out", stagger: 0.2 },
         "-=0.1",
       );
   }, []);

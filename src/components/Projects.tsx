@@ -57,8 +57,9 @@ export default function Projects() {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: headerRef.current,
-          start: "top 85%",
+          start: window.innerWidth < 768 ? "top 95%" : "top 85%",
           toggleActions: "play none none none",
+          once: true,
         },
       });
 
@@ -69,7 +70,7 @@ export default function Projects() {
         {
           y: 0,
           opacity: 1,
-          duration: 0.8,
+          duration: 0.7,
           ease: "power3.out",
         },
       );
@@ -82,9 +83,9 @@ export default function Projects() {
           opacity: 0,
           duration: 0.8,
           ease: "power3.out",
-          stagger: 0.1,
+          stagger: 0.05,
         },
-        "+=0.1",
+        "-=0.2",
       );
     });
 

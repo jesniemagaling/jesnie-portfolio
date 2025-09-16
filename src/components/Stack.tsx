@@ -1,6 +1,10 @@
 import SectionHeader from "./SectionHeader";
 import { PrimaryButton, SecondaryButton } from "./CustomButtons";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const categories = [
   "All",
@@ -117,15 +121,71 @@ export default function Stack() {
       ? stackItems
       : stackItems.filter((item) => item.category === selected);
 
+  // Refs for animations
+  const headerRef = useRef<HTMLDivElement>(null);
+  const buttonsRef = useRef<HTMLDivElement>(null);
+  const itemsRef = useRef<HTMLAnchorElement[]>([]);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: headerRef.current,
+          start: "top 85%",
+          toggleActions: "play none none none",
+          once: true, // only play once
+        },
+      });
+
+      // Header animation
+      tl.fromTo(
+        headerRef.current,
+        { y: 40, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.7, ease: "power3.out" },
+      );
+
+      // Buttons animation
+      if (buttonsRef.current) {
+        tl.from(
+          buttonsRef.current.children,
+          {
+            y: 20,
+            opacity: 0,
+            duration: 0.6,
+            ease: "power2.out",
+            stagger: 0.1,
+          },
+          "-=0.2", // slightly overlap with header
+        );
+      }
+
+      // Stack items animation
+      tl.from(
+        itemsRef.current,
+        {
+          y: 30,
+          opacity: 0,
+          duration: 0.8,
+          ease: "power2.out",
+          stagger: 0.06,
+        },
+        "-=0.2", // overlap a bit for a snappier feel
+      );
+    });
+
+    return () => ctx.revert();
+  }, []);
   return (
     <>
-      <SectionHeader
-        title={"Tech Stack"}
-        description={
-          "These are the technologies, frameworks, and tools I use to bring ideas to life, covering everything from frontend to backend development."
-        }
-      />
-      <div className="mb-10 mt-5 flex flex-wrap gap-2">
+      <div ref={headerRef}>
+        <SectionHeader
+          title={"Tech Stack"}
+          description={
+            "These are the technologies, frameworks, and tools I use to bring ideas to life, covering everything from frontend to backend development."
+          }
+        />
+      </div>
+      <div ref={buttonsRef} className="mb-10 mt-5 flex flex-wrap gap-2">
         {categories.map((cat) =>
           selected === cat ? (
             <PrimaryButton key={cat} onClick={() => setSelected(cat)}>
@@ -139,12 +199,15 @@ export default function Stack() {
         )}
       </div>
       <div className="grid grid-cols-3 gap-4 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8">
-        {filtered.map((tech) => (
+        {filtered.map((tech, i) => (
           <a
             key={tech.name}
             href={tech.link}
             target="_blank"
             rel="noopener noreferrer"
+            ref={(el) => {
+              if (el) itemsRef.current[i] = el;
+            }}
             className="flex flex-col items-center justify-center space-y-2 px-2 py-4 shadow-sm dark:border-gray-700"
           >
             <img
