@@ -1,5 +1,10 @@
 import SectionHeader from "./SectionHeader";
 import { ExternalLink, Github } from "lucide-react";
+import gsap from "gsap";
+import { useEffect, useRef } from "react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const projectItems = [
   {
@@ -44,17 +49,66 @@ const projectItems = [
 ];
 
 export default function Projects() {
+  const headerRef = useRef<HTMLDivElement>(null);
+  const cardsRef = useRef<HTMLDivElement[]>([]);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: headerRef.current,
+          start: "top 85%",
+          toggleActions: "play none none none",
+        },
+      });
+
+      // Header animation
+      tl.fromTo(
+        headerRef.current,
+        { y: 40, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.8,
+          ease: "power3.out",
+        },
+      );
+
+      // Project animation
+      tl.from(
+        cardsRef.current,
+        {
+          y: 50,
+          opacity: 0,
+          duration: 0.8,
+          ease: "power3.out",
+          stagger: 0.1,
+        },
+        "+=0.1",
+      );
+    });
+
+    return () => ctx.revert();
+  }, []);
   return (
     <>
-      <SectionHeader
-        title={"Notable Project"}
-        description={
-          "Here’s a quick look at some of the projects I’ve worked on. They show the kind of work I enjoy and the skills I do best."
-        }
-      />
+      <div ref={headerRef}>
+        <SectionHeader
+          title={"Notable Project"}
+          description={
+            "Here’s a quick look at some of the projects I’ve worked on. They show the kind of work I enjoy and the skills I do best."
+          }
+        />
+      </div>
       <div className="mb-36 mt-10 space-y-6">
-        {projectItems.map((project) => (
-          <div className="flex flex-col items-start gap-6 rounded-2xl border border-transparent p-6 shadow-sm hover:dark:border-[rgba(255,255,255,0.06)] md:flex-row">
+        {projectItems.map((project, i) => (
+          <div
+            key={project.name}
+            ref={(el) => {
+              if (el) cardsRef.current[i] = el;
+            }}
+            className="flex flex-col items-start gap-6 rounded-2xl border border-transparent p-6 shadow-sm hover:dark:border-[rgba(255,255,255,0.06)] md:flex-row"
+          >
             <div className="w-full overflow-hidden rounded-xl md:w-1/2">
               <img
                 src={project.image}
