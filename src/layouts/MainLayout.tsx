@@ -7,11 +7,9 @@ export default function MainLayout({
 }) {
   return (
     <div className="bg-primary-light dark:bg-primary-dark">
-      <div className="relative mx-auto flex h-full max-w-[1440px] flex-col">
-        <main className="flex-1 overflow-y-auto p-4 pb-20 md:px-8">
-          {children}
-        </main>
-      </div>
+      <main className="relative mx-auto flex w-full max-w-[1440px] flex-1 flex-col">
+        {children}
+      </main>
     </div>
   );
 }

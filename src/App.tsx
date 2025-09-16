@@ -5,8 +5,9 @@ import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import About from "./components/About";
 import Projects from "./components/Projects";
-import Contact from "./components/Contact";
 import Stack from "./components/Stack";
+import Footer from "./components/Footer";
+import Contact from "./components/Contact";
 import { Toaster } from "react-hot-toast";
 
 function App() {
@@ -44,8 +45,8 @@ function App() {
   );
 
   return (
-    <MainLayout>
-      <ThemeProvider theme={theme}>
+    <ThemeProvider theme={theme}>
+      <MainLayout>
         <CssBaseline /> {/* resets styles according to theme */}
         <Navbar mode={mode} setMode={setMode} />
         <main>
@@ -65,6 +66,7 @@ function App() {
             <Contact />
           </section>
         </main>
+        <Footer />
         <Toaster
           position="top-right"
           toastOptions={{
@@ -72,8 +74,8 @@ function App() {
               "bg-primary-light text-black dark:bg-primary-dark dark:text-white",
           }}
         />
-      </ThemeProvider>
-    </MainLayout>
+      </MainLayout>
+    </ThemeProvider>
   );
 }
 
