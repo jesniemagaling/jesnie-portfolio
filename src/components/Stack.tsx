@@ -151,9 +151,9 @@ export default function Stack() {
           {
             y: 20,
             opacity: 0,
-            duration: 0.6,
+            duration: 0.4,
             ease: "power2.out",
-            stagger: 0.1,
+            stagger: 0.05,
           },
           "-=0.2", // slightly overlap with header
         );
@@ -165,9 +165,9 @@ export default function Stack() {
         {
           y: 30,
           opacity: 0,
-          duration: 0.8,
+          duration: 0.6,
           ease: "power2.out",
-          stagger: 0.06,
+          stagger: 0.05,
         },
         "-=0.2", // overlap a bit for a snappier feel
       );

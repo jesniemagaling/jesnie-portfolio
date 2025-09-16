@@ -135,9 +135,9 @@ export default function Projects() {
                 ))}
               </div>
 
-              {project.link.map((link) => (
+              {project.link.map((link, index) => (
                 <div className="flex gap-4">
-                  <div className="flex gap-4">
+                  <div key={link.repo || index} className="flex gap-4">
                     {link.live && (
                       <a
                         href={link.live}

@@ -1,11 +1,5 @@
 import { Github, Sun, Moon, Menu, X } from "lucide-react";
-import {
-  useRef,
-  useLayoutEffect,
-  useEffect,
-  useState,
-  type SetStateAction,
-} from "react";
+import { useRef, useLayoutEffect, useState, type SetStateAction } from "react";
 import type { Dispatch } from "react";
 import gsap from "gsap";
 
