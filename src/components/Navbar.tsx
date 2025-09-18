@@ -59,12 +59,12 @@ export default function Navbar({ mode, setMode }: NavbarProps) {
         <a ref={logoRef} className="w-[36px]" href="#">
           <img
             className="hidden dark:block"
-            src="/icons/dark-logo.png"
+            src="icons/dark-logo.png"
             alt="jesnie-icon"
           />
           <img
             className="block dark:hidden"
-            src="/icons/light-logo.png"
+            src="icons/light-logo.png"
             alt="jesnie-icon"
           />
         </a>
