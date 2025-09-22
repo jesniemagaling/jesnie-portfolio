@@ -2,7 +2,7 @@ import { Github } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="text-body mb-5 mt-10 flex w-full justify-between gap-2 px-4 py-4 text-sm">
+    <footer className="mb-5 mt-10 flex w-full justify-between gap-2 px-4 py-4 text-sm">
       <h2>
         © {new Date().getFullYear()} Jesnie Magaling. All rights reserved.
       </h2>
@@ -11,7 +11,7 @@ export default function Footer() {
         target="_blank"
         rel="noopener noreferrer"
       >
-        <Github className="text-black opacity-60 transition-colors duration-100 hover:text-gray-700 dark:text-white dark:hover:text-gray-300 md:h-6 md:w-6" />
+        <Github className="text-black transition-colors duration-100 hover:text-gray-700 dark:text-white dark:hover:text-gray-300 md:h-6 md:w-6" />
       </a>
     </footer>
   );
