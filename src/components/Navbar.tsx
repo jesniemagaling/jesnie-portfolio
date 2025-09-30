@@ -53,6 +53,8 @@ export default function Navbar({ mode, setMode }: NavbarProps) {
 
   const [isOpen, setIsOpen] = useState(false);
 
+  const handleLinkClick = () => setIsOpen(false);
+
   return (
     <nav className="fixed left-0 top-0 z-50 flex w-full items-center justify-between bg-primary-light px-4 py-3 dark:bg-primary-dark md:px-8">
       <div className="flex max-w-[1440px] items-center">
@@ -134,60 +136,73 @@ export default function Navbar({ mode, setMode }: NavbarProps) {
         {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
       </button>
 
-      {isOpen && (
-        <div className="absolute left-0 top-14 z-10 w-full bg-primary-light dark:bg-primary-dark md:hidden">
-          <ul className="flex flex-col space-y-4 p-6 text-sm text-gray-300">
-            <li>
-              <a
-                href="#stack"
-                className="font-semibold text-black transition-colors duration-100 hover:text-gray-700 dark:text-white dark:hover:text-gray-300"
-              >
-                Stack
-              </a>
-            </li>
-            <li>
-              <a
-                href="#projects"
-                className="font-semibold text-black transition-colors duration-100 hover:text-gray-700 dark:text-white dark:hover:text-gray-300"
-              >
-                Projects
-              </a>
-            </li>
-            <li>
-              <a
-                href="#about"
-                className="font-semibold text-black transition-colors duration-100 hover:text-gray-700 dark:text-white dark:hover:text-gray-300"
-              >
-                About
-              </a>
-            </li>
-            <li>
-              <a
-                href="#contact"
-                className="font-semibold text-black transition-colors duration-100 hover:text-gray-700 dark:text-white dark:hover:text-gray-300"
-              >
-                Contact
-              </a>
-            </li>
-          </ul>
-          <div className="flex items-center space-x-4 p-6 pt-2">
+      {/* Mobile dropdown */}
+      <div
+        className={`absolute left-0 top-14 z-10 w-full transform bg-primary-light transition-all duration-300 dark:bg-primary-dark md:hidden ${
+          isOpen
+            ? "translate-y-0 opacity-100"
+            : "pointer-events-none -translate-y-5 opacity-0"
+        }`}
+      >
+        <ul className="flex flex-col space-y-4 p-6 text-sm text-gray-300">
+          <li>
             <a
-              href="https://github.com/jesniemagaling"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="#stack"
+              onClick={handleLinkClick}
+              className="font-semibold text-black transition-colors duration-100 hover:text-gray-700 dark:text-white dark:hover:text-gray-300"
             >
-              <Github className="text-black transition-colors duration-100 hover:text-gray-700 dark:text-white dark:hover:text-gray-300 md:h-6 md:w-6" />
+              Stack
             </a>
-            <button onClick={toggleDarkMode}>
-              {mode === "dark" ? (
-                <Sun className="text-black transition-colors duration-100 hover:text-gray-700 dark:text-white dark:hover:text-gray-300 md:h-6 md:w-6" />
-              ) : (
-                <Moon className="text-black transition-colors duration-100 hover:text-gray-700 dark:text-white dark:hover:text-gray-300 md:h-6 md:w-6" />
-              )}
-            </button>
-          </div>
+          </li>
+          <li>
+            <a
+              href="#projects"
+              onClick={handleLinkClick}
+              className="font-semibold text-black transition-colors duration-100 hover:text-gray-700 dark:text-white dark:hover:text-gray-300"
+            >
+              Projects
+            </a>
+          </li>
+          <li>
+            <a
+              href="#about"
+              onClick={handleLinkClick}
+              className="font-semibold text-black transition-colors duration-100 hover:text-gray-700 dark:text-white dark:hover:text-gray-300"
+            >
+              About
+            </a>
+          </li>
+          <li>
+            <a
+              href="#contact"
+              onClick={handleLinkClick}
+              className="font-semibold text-black transition-colors duration-100 hover:text-gray-700 dark:text-white dark:hover:text-gray-300"
+            >
+              Contact
+            </a>
+          </li>
+        </ul>
+        <div className="flex items-center space-x-4 p-6 pt-2">
+          <a
+            href="https://github.com/jesniemagaling"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Github className="text-black transition-colors duration-100 hover:text-gray-700 dark:text-white dark:hover:text-gray-300 md:h-6 md:w-6" />
+          </a>
+          <button
+            onClick={toggleDarkMode}
+            aria-label="Toggle dark mode"
+            className="focus:outline-none"
+          >
+            {mode === "dark" ? (
+              <Sun className="text-black transition-colors duration-100 hover:text-gray-700 dark:text-white dark:hover:text-gray-300 md:h-6 md:w-6" />
+            ) : (
+              <Moon className="text-black transition-colors duration-100 hover:text-gray-700 dark:text-white dark:hover:text-gray-300 md:h-6 md:w-6" />
+            )}
+          </button>
         </div>
-      )}
+      </div>
     </nav>
   );
 }
